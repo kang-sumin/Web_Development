@@ -31,6 +31,30 @@
             width: 1200px;
             margin: 20px auto 20px auto;
         }
+
+        .mypostingbox{
+            width:500px;
+            margin: 20px auto 20px auto;
+
+            border : 1px solid white;
+            padding : 20px;
+            border-radius:5px;
+        }
+
+        .form-floating>input{
+            background-color: transparent;
+            color:white;
+        }
+        .form-floating>label{
+            color:white;
+        }
+        .input-group>label{
+            background-color: transparent;
+            color:white;
+        }
+        .mypostingbox>button{
+            width:100%;
+        }
     </style>
 </head>
 
@@ -78,7 +102,7 @@
     </div>
 
     <!--포스팅 박스-->
-    <div>
+    <div class="mypostingbox">
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="영화 이미지 주소">
             <label for="floatingInput">영화 이미지 주소</label>
