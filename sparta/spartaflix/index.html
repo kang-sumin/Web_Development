@@ -61,18 +61,17 @@
     </style>
     <!--javascript-->
     <script>
-        //리스트, 순서중요
-        let a_list=['사과','배','수박']
-        console.log(a_list[0])
+        let ages = [15, 30, 28, 7, 40, 13];
 
-        //딕셔너리, 키-벨류 값으로 묶임
-        let person_dict ={'name':'bob','age':30,'height':180}
-        let name=person_dict['name']
-        let age=person_dict['age']
-        let height=person_dict['height']
-        console.log(person_dict)
-        console.log(person_dict['name'])
-        console.log(name,age)
+        ages.forEach(age => {
+            if (age < 20) {
+                console.log('청소년입니다.')
+            }
+            else {
+                console.log('성인입니다.')
+            }
+        });
+
 
     </script>
 </head>
