@@ -14,11 +14,17 @@
 </style>
 <script>
     function checkResult() {
+        let a = ['사과', '배', '감', '귤']
+        $('#q1').text(a[1])
+
+        let b = { 'name': '영수', 'age': 30 }
+        $('#q2').text(b['name'])
+
         let c = [
             { 'name': '영수', 'age': 30 },
             { 'name': '철수', 'age': 35 }
         ]
-        $('#q1').text(c[1]['name']);
+        $('#q3').text(c[1]['age'])
     }
 </script>
 
