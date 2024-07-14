@@ -68,6 +68,30 @@
             $('#postingbox').toggle();
         }
 
+        function makeCard(){
+            let image = $('#image').val();
+            let title = $('#title').val();
+            let comment = $('#comment').val();
+            let star = $('#star').val();
+
+            console.log(star);
+
+            let temp_html=`            
+            <div class="col">
+                <div class="card h-100">
+                    <img src="${image}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${title}</h5>
+                        <p class="card-text">${star}</p>
+                        <p class="card-text">${comment}</p>
+                    </div>
+                </div>
+            </div>`;
+            $('#card').append(temp_html);
+
+        }
+
     </script>
 </head>
 
@@ -117,34 +141,34 @@
     <!--포스팅 박스-->
     <div class="mypostingbox" id="postingbox">
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="영화 이미지 주소">
+            <input type="email" class="form-control" id="image" placeholder="영화 이미지 주소">
             <label for="floatingInput">영화 이미지 주소</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="영화 제목">
+            <input type="email" class="form-control" id="title" placeholder="영화 제목">
             <label for="floatingInput">영화 제목</label>
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">별점</label>
-            <select class="form-select" id="inputGroupSelect01">
+            <select class="form-select" id="star">
                 <option selected>별점선택</option>
-                <option value="1">⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="5">⭐⭐⭐⭐⭐</option>
+                <option value="⭐">⭐</option>
+                <option value="⭐⭐">⭐⭐</option>
+                <option value="⭐⭐⭐">⭐⭐⭐</option>
+                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
             </select>
         </div>
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="추천 이유">
+            <input type="email" class="form-control" id="comment" placeholder="추천 이유">
             <label for="floatingInput">추천 이유</label>
         </div>
-        <button type="button" class="btn btn-danger">기록하기</button>
+        <button onclick="makeCard()" type="button" class="btn btn-danger">기록하기</button>
     </div>
 
     <!--card-->
     <div class="mycards">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
