@@ -10,7 +10,13 @@
             let url = 'http://spartacodingclub.shop/sparta_api/seoulair';
 
             fetch(url).then(res => res.json()).then(data => {
-                console.log(data['RealtimeCityAir']['row'][0])
+                let rows = data['RealtimeCityAir']['row'];
+                rows.forEach(a => {
+                    let gu_name = a['MSRSTE_NM'];
+                    let gu_mise = a['IDEX_MVL'];
+
+                    console.log(gu_name, gu_mise);
+                });
             })
         }
     </script>
