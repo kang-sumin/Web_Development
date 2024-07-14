@@ -102,7 +102,21 @@
         const db = getFirestore(app);
 
 
+        //DB
+        $("#postingbtn").click(async function () {
+            let image = $('#image').val();
+            let title = $('#title').val();
+            let content = $('#content').val();
+            let date = $('#date').val();
 
+            let doc = {
+                'image':image,
+                'title':title,
+                'content':content,
+                'date':date
+            };
+            await addDoc(collection(db, "albums"), doc);
+        })
 
 
 
@@ -171,7 +185,7 @@
         </div>
 
         <div class="mybtn">
-            <button onclick="makeCard()" type="button" class="btn btn-dark">기록하기</button>
+            <button id="postingbtn" type="button" class="btn btn-dark">기록하기</button>
             <button type="button" class="btn btn-outline-dark">닫기</button>
         </div>
     </div>
