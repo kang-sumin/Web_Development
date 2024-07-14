@@ -110,33 +110,36 @@
             let date = $('#date').val();
 
             let doc = {
-                'image':image,
-                'title':title,
-                'content':content,
-                'date':date
+                'image': image,
+                'title': title,
+                'content': content,
+                'date': date
             };
             await addDoc(collection(db, "albums"), doc);
+            alert('저장완료!');
+            window.location.reload();
         })
 
-
-
-        $(document).ready(function () {
-            let url = "http://spartacodingclub.shop/sparta_api/seoulair";
-            fetch(url).then(res => res.json()).then(data => {
-                let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
-                $('#msg').text(mise);
-            })
-        })
-
-        function openclose() {
+        //토글 버튼 기능
+        $("#savebtn").click(async function () {
             $('#postingbox').toggle();
-        }
+        })
 
-        function makeCard() {
-            let image = $('#image').val();
-            let title = $('#title').val();
-            let content = $('#content').val();
-            let date = $('#date').val();
+        let url = "http://spartacodingclub.shop/sparta_api/seoulair";
+        fetch(url).then(res => res.json()).then(data => {
+            let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
+            $('#msg').text(mise);
+        })
+
+        let docs = await getDocs(collection(db, "albums"));
+        docs.forEach((doc) => {
+            let row = doc.data();
+            console.log(row);
+
+            let image = row['image'];
+            let title = row['title'];
+            let content = row['content'];
+            let date = row['date'];
 
             let temp_html = `            
             <div class="col">
@@ -153,7 +156,9 @@
                 </div>
             </div>`;
             $('#card').append(temp_html);
-        }
+        });
+
+
     </script>
 </head>
 
@@ -162,7 +167,7 @@
     <div class="mytitle">
         <h1>나만의 추억 앨범</h1>
         <p>현재 서울의 미세먼지 : <span id="msg">좋음</span></p>
-        <button onclick="openclose()">추억 저장하기</button>
+        <button id="savebtn">추억 저장하기</button>
     </div>
 
     <!--포스팅 박스-->
