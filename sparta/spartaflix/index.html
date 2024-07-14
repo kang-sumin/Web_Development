@@ -63,9 +63,11 @@
     </style>
     <!--javascript-->
     <script>
-        function hey(){
-            $('#title').text('쥬라기월드');
+
+        function openclose(){
+            $('#postingbox').toggle();
         }
+
     </script>
 </head>
 
@@ -103,17 +105,17 @@
     <div class="main">
         <div class="p-5 mb-4 bg-body-tertiary rounded-3">
             <div class="container-fluid py-5">
-                <h1 id="title" class="display-5 fw-bold">킹덤</h1>
+                <h1 class="display-5 fw-bold">킹덤</h1>
                 <p class="col-md-8 fs-4">병든 왕을 둘러싸고 흉흉한 소문이 떠돈다. 어둠에 뒤덮인 조선, 기이한 역병에 신음하는 산하. 정체 모를 악에 맞서 백성을 구원할 희망은 오직
                     세자뿐이다.</p>
-                <button onclick="hey()" type="button" class="btn btn-outline-light">영화 기록하기</button>
+                <button onclick="openclose()" type="button" class="btn btn-outline-light">영화 기록하기</button>
                 <button type="button" class="btn btn-outline-light">상세정보</button>
             </div>
         </div>
     </div>
 
     <!--포스팅 박스-->
-    <div class="mypostingbox">
+    <div class="mypostingbox" id="postingbox">
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="영화 이미지 주소">
             <label for="floatingInput">영화 이미지 주소</label>
